@@ -13,23 +13,23 @@
 <% end %>
 <!-- エラーメッセージ表示-->
 
-<div class="field">
-	<%= f.label :title %>
-	<%= f.text_field :title, class: "name" %>
-</div>
+	<div class="field">
+		<%= f.label :title %>
+		<%= f.text_field :title, class: "name" %>
+	</div>
 
-<div class="field">
-	<%= f.label :image %>
-	<%= f.attachment_field :profile_image, class: "user_image" %>
-</div>
+	<div class="field">
+		<%= f.label :image %>
+		<%= f.attachment_field :profile_image, class: "user_image" %>
+	</div>
 
-<div class="field">
-	<%= f.label :introduction %>
-	<%= f.text_area :introduction, class: "introduction" %>
-</div>
+	<div class="field">
+		<%= f.label :introduction %>
+		<%= f.text_area :introduction, class: "introduction" %>
+	</div>
 
-<div class="actions">
-	<%= f.submit %>
-</div>
+	<div class="actions">
+		<%= f.submit %>
+	</div>
 
 <% end %>
