@@ -1,36 +1,36 @@
+<div class="container">
+	<div class="row">
+		<div class="col-xs-3">
 
-<div class="row">
-	<div class="col-xs-3">
+			<h2>User info</h2>
+			<%= render 'users/profile', user: @up_book.user %>
 
-		<h2>User info</h2>
-		<%= render 'users/profile', user: @up_book.user %>
+			<h2>New book</h2>
+			<%= render 'books/newform', book: @book %>
 
-		<h2>New book</h2>
-		<%= render 'books/newform', book: @book %>
+		</div>
 
-	</div>
+		<div class="col-xs-9">
+			<h2>Book detail</h2>
 
-	<div class="col-xs-9">
-		<h2>Book detail</h2>
+			<table class="table">
+					<tr>
+						<td>
+							<%= link_to (@up_book.user) do %>
+							<%= attachment_image_tag(@up_book.user, :profile_image, :fill, 100, 100, fallback: "no-image-mini.jpg") %><br>
+							<%= @up_book.user.name %>
+							<% end %>
+						</td>
+						<td><%= link_to @up_book.title, @up_book %></td>
+						<td><%= @up_book.body %></td>
 
-		<table class="table">
-				<tr>
-					<td>
-						<%= link_to (@up_book.user) do %>
-						<%= attachment_image_tag(@up_book.user, :profile_image, :fill, 100, 100, fallback: "no-image-mini.jpg") %><br>
-						<%= @up_book.user.name %>
+						<% if @up_book.user === current_user %>
+							<td><%= link_to "Edit",edit_book_path(@up_book), class: "btn-sm btn-success edit_book_#{@up_book.id}" %></td>
+							<td><%= link_to "Destroy",@up_book, method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn-sm btn-danger destroy_book_#{@up_book.id}" %></td>
 						<% end %>
-					</td>
-					<td><%= link_to @up_book.title, @up_book %></td>
-					<td><%= @up_book.body %></td>
+					</tr>
+				</table>
 
-					<% if @up_book.user === current_user %>
-						<td><%= link_to "Edit",edit_book_path(@up_book), class: "btn-sm btn-success edit_book_#{@up_book.id}" %></td>
-						<td><%= link_to "Destroy",@up_book, method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn-sm btn-danger destroy_book_#{@up_book.id}" %></td>
-					<% end %>
-				</tr>
-			</table>
-
+		</div>
 	</div>
 </div>
-
